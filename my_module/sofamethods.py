@@ -3,7 +3,6 @@
     Purpose: This file contains the functions that are used in the semillero SOFA
     Acknowledgments: This file was created with the help of the semillero SOFA '''
 
-import random
 import numpy as np
 
 ''' Add noise to the signal
@@ -15,7 +14,7 @@ def add_noise(signal, target_snr_db):
     noise_avg_db_r = X_avg_db - target_snr_db
     noise_avg_p_r = 10 ** (noise_avg_db_r / 10)
     mean_noise = 0
-    noise_r = random.normal(mean_noise, np.sqrt(noise_avg_p_r), len(signal))
+    noise_r = np.random.normal(mean_noise, np.sqrt(noise_avg_p_r), len(signal))
     return signal + noise_r
 
 ''' Function that calculates the BER of a given constellation
